@@ -78,7 +78,7 @@ const Signup = () => {
           className="w-full bg-green-600 text-white py-3 rounded hover:bg-green-700 transition-colors duration-300"
           disabled={loading}
         >
-          {loading ? "Signing up..." : "Sign Up"}
+          {loading ? "Signing up...Please wait..." : "Sign Up"}
         </button>
         <p className="text-gray-400 text-center mt-4">
           Already have an account?{" "}

@@ -57,7 +57,7 @@ const Login = () => {
           className="w-full bg-green-600 text-white py-3 rounded hover:bg-green-700 transition-colors duration-300"
           disabled={loading}
         >
-          {loading ? "Logging in..." : "Login"}
+          {loading ? "Logging in...Please wait..." : "Login"}
         </button>
       </div>
     </div>
