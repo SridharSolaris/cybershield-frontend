@@ -12,7 +12,7 @@ const getAuthHeaders = (token) => ({
 export const blockIP = async (appId, ip, token) => {
   try {
     const response = await axios.post(
-      `${API_BASE_URL}/apps/${appId}/block-ip`,
+      `${API_BASE_URL}/api/apps/${appId}/block-ip`,
       { ip },
       getAuthHeaders(token)
     );
@@ -27,7 +27,7 @@ export const unblockIP = async (appId, ip, token) => {
   try {
     console.log(ip);
     const response = await axios.post(
-      `${API_BASE_URL}/apps/${appId}/unblock-ip`,
+      `${API_BASE_URL}/api/apps/${appId}/unblock-ip`,
       { ip },
       getAuthHeaders(token)
     );
@@ -45,7 +45,7 @@ export const unblockIP = async (appId, ip, token) => {
 export const getApps = async (token) => {
   try {
     const response = await axios.get(
-      `${API_BASE_URL}/apps`,
+      `${API_BASE_URL}/api//apps`,
       getAuthHeaders(token)
     );
     return response.data.apps || []; // Ensure an empty array is returned if no apps
@@ -62,7 +62,7 @@ export const getApps = async (token) => {
 export const addApp = async (appName, token) => {
   try {
     const response = await axios.post(
-      `${API_BASE_URL}/apps`,
+      `${API_BASE_URL}/api/apps`,
       { appName },
       getAuthHeaders(token)
     );
@@ -77,7 +77,7 @@ export const addApp = async (appName, token) => {
 export const getBlockedIPs = async (appId, token) => {
   try {
     const response = await axios.get(
-      `${API_BASE_URL}/apps/${appId}/blocked-ips`,
+      `${API_BASE_URL}/api/apps/${appId}/blocked-ips`,
       getAuthHeaders(token)
     );
     return response.data.blockedIPs || []; // Ensure an empty array is returned if no blocked IPs
@@ -94,7 +94,7 @@ export const getBlockedIPs = async (appId, token) => {
 export const generateApiKey = async (appId, token) => {
   try {
     const response = await axios.post(
-      `${API_BASE_URL}/apps/${appId}/generate-key`,
+      `${API_BASE_URL}/api/apps/${appId}/generate-key`,
       {},
       getAuthHeaders(token)
     );

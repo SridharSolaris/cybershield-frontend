@@ -3,7 +3,7 @@ import axios from 'axios';
 
 // Store socket connections by appId
 const socketConnections = {};
-const FIREWALL_API_URL = "http://localhost:4000"; // Update with actual backend URL
+const API_BASE_URL = process.env.VITE_FIREWALL_API; // Update with actual backend URL
 const sockets = {}; // Store WebSocket connections per app
 
 export const connectWebSocket = (appId, onTrafficUpdate) => {
@@ -21,7 +21,7 @@ export const connectWebSocket = (appId, onTrafficUpdate) => {
     console.log(`🔌 Connecting WebSocket for ${appId}...`);
 
     // Create a new socket connection
-    const socket = io(`${process.env.REACT_APP_API_URL || 'http://localhost:4000'}/traffic`, {
+    const socket = io(`${process.env.REACT_APP_API_URL || API_BASE_URL}/traffic`, {
         query: { appId },
         transports: ['websocket', 'polling'], // Try both transport methods
     });
@@ -74,7 +74,7 @@ export const fetchTrafficLogs = async (appId, page = 1, limit = 100) => {
         if (!token) throw new Error("JWT token not found!");
 
         const response = await fetch(
-            `${FIREWALL_API_URL}/api/apps/${appId}/traffic-log?page=${page}&limit=${limit}`,
+            `${API_BASE_URL}/api/apps/${appId}/traffic-log?page=${page}&limit=${limit}`,
             {
                 method: "GET",
                 headers: {

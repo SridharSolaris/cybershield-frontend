@@ -5,7 +5,7 @@ const API_BASE_URL = process.env.VITE_FIREWALL_API;
 // User sign up
 export const signup = async (userData) => {
   try {
-    const response = await axios.post(`${API_BASE_URL}/auth/signup`, userData);
+    const response = await axios.post(`${API_BASE_URL}/api/auth/signup`, userData);
 
     // Store token in localStorage after successful signup
     if (response.data?.token) {
@@ -26,7 +26,7 @@ export const signup = async (userData) => {
 export const login = async (credentials) => {
   try {
     const response = await axios.post(
-      `${API_BASE_URL}/auth/login`,
+      `${API_BASE_URL}/api/auth/login`,
       credentials
     );
 

@@ -21,6 +21,8 @@ import {
     Cell,
 } from "recharts";
 
+const API_BASE_URL = process.env.VITE_FIREWALL_API;
+
 const IPAnalysis = ({ ip }) => {
 
 
@@ -51,7 +53,7 @@ const IPAnalysis = ({ ip }) => {
         }
 
         try {
-            const riskResponse = await axios.post("http://localhost:4000/api/ip/analyze", { ip: ipAddress });
+            const riskResponse = await axios.post(`${API_BASE_URL}/api/ip/analyze`, { ip: ipAddress });
             if (riskResponse.data && riskResponse.data.data) {
                 setRiskData(riskResponse.data.data);
                 setShapExplanation(riskResponse.data.shapExplanation || []); // Ensure it's an array
