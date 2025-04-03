@@ -38,7 +38,7 @@ const Login = () => {
         {error && <p className="text-red-500 mb-4 text-center">{error}</p>}
         <input
           type="email"
-          placeholder="Email"
+          placeholder="Test Mail: user@gmail.com"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="w-full p-3 border border-gray-700 rounded mb-4 bg-gray-800 text-gray-200 placeholder-gray-500"
@@ -46,7 +46,7 @@ const Login = () => {
         />
         <input
           type="password"
-          placeholder="Password"
+          placeholder="Test Password: 123"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="w-full p-3 border border-gray-700 rounded mb-4 bg-gray-800 text-gray-200 placeholder-gray-500"
