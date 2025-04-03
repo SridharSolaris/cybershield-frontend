@@ -15,26 +15,24 @@ import AppDetails from "./pages/AppDetails";
 const App = () => {
   return (
 
-    <Router>
-      <AuthProvider>
-        <div className="flex flex-col min-h-screen bg-gray-900">
-          <Navbar />
-          <div className="flex-grow container mx-auto p-4">
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/sdk-setup" element={<SDKSetupPage />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/app-details/:appId" element={<AppDetails />} />
-              <Route path="/settings" element={<Settings />} />
-              <Route path="*" element={<NotFound />} />
-              <Route path="/indash" element={<IndividualDashboard />} />
-            </Routes>
-          </div>
-        </div>
-      </AuthProvider>
-    </Router>
+
+    <div className="flex flex-col min-h-screen bg-gray-900">
+      <Navbar />
+      <div className="flex-grow container mx-auto p-4">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/sdk-setup" element={<SDKSetupPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/app-details/:appId" element={<AppDetails />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="*" element={<NotFound />} />
+          <Route path="/indash" element={<IndividualDashboard />} />
+        </Routes>
+      </div>
+    </div>
+
 
   );
 };
