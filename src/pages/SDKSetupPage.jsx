@@ -12,7 +12,7 @@ const SDKSetupPage = () => {
         Firewall SDK Integration
       </h1>
       <p className="mt-4 text-xl text-gray-300 leading-relaxed">
-        This page explains how to install and integrate the Firewall SDK into your React application. Follow the steps below to get started with the integration.
+        This page explains how to install and integrate the Cyshield SDK into your React application. Follow the steps below to get started with the integration.
       </p>
 
       {/* Demo Section - Add this before Step 1 */}
@@ -70,15 +70,15 @@ const SDKSetupPage = () => {
       <div className="mt-8">
         <h2 className="text-3xl font-semibold text-gray-100">Step 1: Install the SDK</h2>
         <p className="mt-2 text-lg text-gray-400 leading-relaxed">
-          First, install the Firewall SDK in your React application using either npm or yarn:
+          First, install the Cyshield SDK in your React application using either npm:
         </p>
         <div className="mt-4 space-y-4">
           <div className="relative bg-gradient-to-r from-gray-700 to-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-200">
             <pre className="text-lg text-gray-300 overflow-x-auto">{`
-npm install firewalljk31-sdk
+npm install cyshield-sdk
             `}</pre>
             <button
-              onClick={() => handleCopyCode("npm install firewalljk31-sdk")}
+              onClick={() => handleCopyCode("npm install cyshield-sdk")}
               className="absolute top-4 right-4 bg-green-500 text-white p-2 rounded-md hover:bg-green-600 transition-all duration-200"
             >
               Copy
@@ -96,7 +96,7 @@ npm install firewalljk31-sdk
         <div className="mt-4 relative bg-gradient-to-r from-gray-700 to-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-200">
           <pre className="text-lg text-gray-300 overflow-x-auto">{`
 import React, { useEffect } from "react";
-import { setConfig, ProtectedPage, setupAxiosInterceptors } from "firewalljk31-sdk";
+import { setConfig, ProtectedPage, setupAxiosInterceptors } from "cyshield-sdk";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import axios from "axios"; 
 import Home from "./pages/Home";
@@ -134,7 +134,7 @@ export default App;
             onClick={() =>
               handleCopyCode(`
 import React, { useEffect } from "react";
-import { setConfig, ProtectedPage, setupAxiosInterceptors } from "firewalljk31-sdk";
+import { setConfig, ProtectedPage, setupAxiosInterceptors } from "cyshield-sdk";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import axios from "axios"; 
 import Home from "./pages/Home";
@@ -217,7 +217,7 @@ REACT_APP_FIREWALL_APP_ID="your-app-id"
       <div className="mt-8 bg-gray-800 p-6 rounded-lg border-l-4 border-yellow-500">
         <h3 className="text-xl font-semibold text-yellow-400 mb-2">Important Note</h3>
         <p className="text-gray-400">
-          The demo app uses the same firewall SDK that you'll be implementing. Monitor its behavior in real-time by logging into the dashboard with the test account provided above.
+          The demo app uses the same cyshield SDK that you'll be implementing. Monitor its behavior in real-time by logging into the dashboard with the test account provided above.
         </p>
       </div>
 
