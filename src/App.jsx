@@ -1,5 +1,5 @@
-import React, { useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, useNavigate } from "react-router-dom";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
@@ -8,19 +8,11 @@ import Signup from "./pages/Signup";
 import NotFound from "./pages/NotFound";
 import Settings from "./pages/Settings";
 import SDKSetupPage from "./pages/SDKSetupPage";
-import { AuthProvider, useAuth } from "./context/AuthContext";
+import { AuthProvider } from "./context/AuthContext";
 import IndividualDashboard from "./pages/IndividualDashboard";
 import AppDetails from "./pages/AppDetails";
-import setupAxiosInterceptors from './api/axiosConfig';
 
 const App = () => {
-  const navigate = useNavigate();
-  const { logout } = useAuth();
-
-  useEffect(() => {
-    setupAxiosInterceptors(logout, navigate);
-  }, [logout, navigate]);
-
   return (
     <AuthProvider>
       <Router>
