@@ -14,8 +14,9 @@ import AppDetails from "./pages/AppDetails";
 
 const App = () => {
   return (
-    <AuthProvider>
-      <Router>
+
+    <Router>
+      <AuthProvider>
         <div className="flex flex-col min-h-screen bg-gray-900">
           <Navbar />
           <div className="flex-grow container mx-auto p-4">
@@ -32,8 +33,9 @@ const App = () => {
             </Routes>
           </div>
         </div>
-      </Router>
-    </AuthProvider>
+      </AuthProvider>
+    </Router>
+
   );
 };
 
