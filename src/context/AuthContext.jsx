@@ -1,37 +1,74 @@
 // AuthContext.jsx
 import React, { createContext, useState, useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-// Create and export the AuthContext
 export const AuthContext = createContext();
 
-// Create and export the useAuth hook
 export const useAuth = () => {
     return useContext(AuthContext);
 };
 
-// The AuthProvider component
 export const AuthProvider = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const navigate = useNavigate();
 
-    useEffect(() => {
-        // Check if the token exists in localStorage
+    const checkTokenExpiration = () => {
         const token = localStorage.getItem("token");
-        setIsLoggedIn(token ? true : false); // If token exists, set loggedIn state to true
-    }, []);
+        if (!token) {
+            handleLogout();
+            return;
+        }
+
+        try {
+            // Decode JWT token
+            const [, payloadBase64] = token.split('.');
+            const payload = JSON.parse(atob(payloadBase64));
+
+            // Check if token has expired
+            const currentTime = Date.now() / 1000;
+            if (payload.exp <= currentTime) {
+                console.log("Token expired, logging out...");
+                handleLogout();
+            } else {
+                // Set timer for auto logout when token expires
+                const timeUntilExpiry = (payload.exp - currentTime) * 1000;
+                setTimeout(handleLogout, timeUntilExpiry);
+            }
+        } catch (error) {
+            console.error("Invalid token format:", error);
+            handleLogout();
+        }
+    };
+
+    const handleLogout = () => {
+        setIsLoggedIn(false);
+        localStorage.removeItem("token");
+        navigate("/login");
+    };
 
     const login = (token) => {
         setIsLoggedIn(true);
-        localStorage.setItem("token", token); // Store token in localStorage
+        localStorage.setItem("token", token);
+        checkTokenExpiration(); // Start monitoring token expiration
     };
 
-    const logout = () => {
-        setIsLoggedIn(false);
-        localStorage.removeItem("token");
-    };
+    useEffect(() => {
+        const token = localStorage.getItem("token");
+        if (token) {
+            setIsLoggedIn(true);
+            checkTokenExpiration();
+        }
+
+        // Check token every minute
+        const interval = setInterval(checkTokenExpiration, 60000);
+        return () => clearInterval(interval);
+    }, [navigate]);
 
     return (
-        <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
+        <AuthContext.Provider value={{ isLoggedIn, login, logout: handleLogout }}>
             {children}
         </AuthContext.Provider>
     );
 };
+
+export default AuthProvider;
