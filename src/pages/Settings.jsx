@@ -44,13 +44,13 @@ const Settings = () => {
 
   return (
     <div className="max-w-6xl my-6 mx-auto p-6 bg-gray-900 rounded-xl shadow-lg">
-      <h1 className="text-3xl font-semibold mb-6 text-green-400">
+      <h1 className="text-3xl font-semibold text-center mb-6 text-green-400">
         Settings
       </h1>
 
       {/* User Account Section */}
       <section className="bg-gray-800 p-6 rounded-lg shadow-md mb-6 border-l-4 border-blue-500">
-        <h2 className="text-xl font-semibold text-center mb-4 text-green-300">
+        <h2 className="text-xl font-semibold mb-4 text-green-300">
           Account Details
         </h2>
         <p className="text-white">
