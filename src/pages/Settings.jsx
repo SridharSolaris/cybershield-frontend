@@ -53,10 +53,10 @@ const Settings = () => {
         <h2 className="text-xl font-semibold text-center mb-4 text-green-300">
           Account Details
         </h2>
-        <p className="text-gray-300">
-          <strong className="text-white">User/Organization Name:</strong> {userDetails.username}
+        <p className="text-white">
+          <strong className="text-white">User Name:</strong> {userDetails.username}
         </p>
-        <p className="text-gray-300">
+        <p className="text-white">
           <strong className="text-white">Email:</strong> {userDetails.email}
         </p>
 
