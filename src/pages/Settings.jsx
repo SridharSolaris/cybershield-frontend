@@ -4,8 +4,8 @@ import { Clipboard, ClipboardCheck } from "lucide-react";
 
 const Settings = () => {
   const [userDetails] = useState({
-    username: "admin",
-    email: "admin@example.com",
+    username: "user",
+    email: "user@gmail.com",
   });
   const [apps, setApps] = useState([]);
   const [apiKey, setApiKey] = useState(null);
@@ -51,10 +51,10 @@ const Settings = () => {
       {/* User Account Section */}
       <section className="bg-gray-800 p-6 rounded-lg shadow-md mb-6 border-l-4 border-blue-500">
         <h2 className="text-xl font-semibold text-center mb-4 text-green-300">
-          ADMIN
+          Account Details
         </h2>
         <p className="text-gray-300">
-          <strong className="text-white">Username:</strong> {userDetails.username}
+          <strong className="text-white">User/Organization Name:</strong> {userDetails.username}
         </p>
         <p className="text-gray-300">
           <strong className="text-white">Email:</strong> {userDetails.email}
