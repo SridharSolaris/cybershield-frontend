@@ -334,7 +334,7 @@ const IndividualDashboard = () => {
             >
               Analyze IP
             </button>
-            <button
+            {/* <button
               onClick={exportToCSV}
               className="bg-[#003300] border border-[#00ff00] text-[#00ff00] px-5 py-3 rounded shadow-md cursor-pointer transition-colors duration-300 hover:bg-[#00ff00] hover:text-[#003300]"
             >
@@ -345,7 +345,7 @@ const IndividualDashboard = () => {
               className="bg-[#003300] border border-[#00ff00] text-[#00ff00] px-5 py-3 rounded shadow-md cursor-pointer transition-colors duration-300 hover:bg-[#00ff00] hover:text-[#003300]"
             >
               Download PDF
-            </button>
+            </button> */}
           </div>
           {error && <p className="text-red-500 text-center mt-4">{error}</p>}
         </section>
